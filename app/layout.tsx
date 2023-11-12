@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Zen_Antique } from 'next/font/google';
 import './globals.css';
+import Header from './components/base/Header';
+import SessionProviderWrap from './components/contexts/SessionProviderWrap';
 
 const zen = Zen_Antique({
   weight: '400',
@@ -20,8 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='ja'>
-      <body className={zen.className}>{children}</body>
+    <html lang="ja">
+      <body className={zen.className}>
+        <SessionProviderWrap>
+          <Header />
+          <main>{children}</main>
+        </SessionProviderWrap>
+      </body>
     </html>
   );
 }
