@@ -9,10 +9,6 @@ export const {
 } = NextAuth({
   adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET as string,
-  pages: {
-    signIn: '/login',
-    signOut: '/',
-  },
   providers: [
     GitHub({
       clientId: process.env.GITHUB_CLIENT_ID,
