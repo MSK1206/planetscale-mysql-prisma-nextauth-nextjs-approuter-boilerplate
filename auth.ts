@@ -8,11 +8,11 @@ export const {
   auth,
 } = NextAuth({
   adapter: PrismaAdapter(prisma),
-  secret: process.env.NEXTAUTH_SECRET as string,
   providers: [
     GitHub({
       clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET as string,
 });
